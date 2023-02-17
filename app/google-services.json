@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "578648535330",
+    "firebase_url": "https://car-washer-34d83-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "car-washer-34d83",
+    "storage_bucket": "car-washer-34d83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578648535330:android:2050b1aa20d0692af2f57b",
+        "android_client_info": {
+          "package_name": "com.example.carwasher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578648535330-if2v6b000cq937ukrct93h1lql38venk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBISSfd3gGl9SrOUJWGKfrxyJ2WV_J9K7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578648535330-if2v6b000cq937ukrct93h1lql38venk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

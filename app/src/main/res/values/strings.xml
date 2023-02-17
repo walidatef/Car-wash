@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">مغسلة سيارات</string>
+    <string name="phase1">مرحلة أولى</string>
+    <string name="phase2">مرحلة ثانية</string>
+    <string name="phase3">مرحلة ثالثة</string>
+
+    <string name="description_phase1">مياه فقط</string>
+    <string name="description_phase2">مياه + صابون</string>
+    <string name="description_phase3">مياه + صابون + رغوه</string>
+    <string name="currency">جنية</string>
+    <string name="price">10</string>
+    <string name="time">الوقت المستغرق</string>
+    <string name="expected_time_of_completion">الزمن المتوقع للانتظار</string>
+    <string name="car_front">سيارة أمامك</string>
+    <string name="your_order">طلبك</string>
+    <string name="no_order">لا يوجد</string>
+    <string name="order">اطلب</string>
+    <string name="cancel">الغاء</string>
+    <string name="name">الاسم</string>
+    <string name="phone">رقم الموبايل</string>
+    <string name="car_number">رقم العربية</string>
+    <string name="car_model">نوع العربية</string>
+    <string name="hour">ساعة</string>
+    <string name="loading">جار التحميل ..</string>
+    <string name="empty">فارغ</string>
+    <string name="wait">انتظر ...</string>
+    <string name="ok">حسنا</string>
+    <string name="done_send_order">تم ارسال الطلب</string>
+</resources>

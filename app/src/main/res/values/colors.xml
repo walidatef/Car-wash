@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/white_50</color>
+    <color name="colorPrimaryDark">@color/white_50</color>
+    <color name="colorPrimaryVariant">@color/white_50</color>
+
+    <color name="colorBackground">@color/white_50</color>
+    <color name="colorAccent">@color/white_50</color>
+
+    <color name="colorSecondary">@color/black_100</color>
+    <color name="colorOnPrimary">@color/white_100</color>
+
+
+
+    <color name="green">#12D245</color>
+    <color name="black_100">#FF000000</color>
+    <color name="black_50">#848E99</color>
+    <color name="white_100">#FFFFFFFF</color>
+    <color name="white_50">#F3F3FF</color>
+    <color name="blue">#2B0077</color>
+</resources>
