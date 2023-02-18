@@ -1,4 +1,4 @@
-package com.example.carwasher
+package com.example.carwasher.ui
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import com.example.carwasher.R
 
 class WaitDialog(private val activity: Activity) {
     private lateinit var dialog: AlertDialog

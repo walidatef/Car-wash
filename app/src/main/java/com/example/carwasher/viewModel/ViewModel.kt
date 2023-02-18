@@ -1,17 +1,17 @@
 package com.example.carwasher.viewModel
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.carwasher.IsSuccessOrder
 import com.example.carwasher.model.Order
-import com.google.android.gms.tasks.Task
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ServerValue
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import java.util.Objects
 
@@ -22,6 +22,7 @@ class ViewModel : androidx.lifecycle.ViewModel() {
 
     fun fetchData(context: Context) {
 
+        db.keepSynced(true)
         val queueListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
@@ -38,7 +39,7 @@ class ViewModel : androidx.lifecycle.ViewModel() {
 
         val phasesListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Get Post object and use the values to update the UI
+                // ...
                 phasesData.postValue(dataSnapshot.value as Map<*, *>?)
                 // ...
             }
@@ -49,6 +50,32 @@ class ViewModel : androidx.lifecycle.ViewModel() {
             }
         }
         db.child("phases").addValueEventListener(phasesListener)
+
+
+        val positionChang = object :ChildEventListener{
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                Toast.makeText(context, snapshot.child("name").value.toString()+"change", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+
+                Toast.makeText(context, snapshot.child("name").value.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        }
+        db.child("queue").addChildEventListener(positionChang)
+
     }
 
 

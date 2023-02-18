@@ -1,14 +1,12 @@
-package com.example.carwasher
+package com.example.carwasher.ui
 
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.carwasher.IsSuccessOrder
+import com.example.carwasher.R
 import com.example.carwasher.databinding.ActivityMainBinding
 import com.example.carwasher.databinding.BottomSheetDialogBinding
 import com.example.carwasher.model.Order
