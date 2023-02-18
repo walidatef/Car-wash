@@ -19,6 +19,7 @@ class ViewModel : androidx.lifecycle.ViewModel() {
     private val db = Firebase.database.reference
     val queueData = MutableLiveData<Map<String, Any>>()
     val phasesData = MutableLiveData<Map<*, *>>()
+    val positionOrder = MutableLiveData<String>()
 
     fun fetchData(context: Context) {
 
@@ -52,21 +53,23 @@ class ViewModel : androidx.lifecycle.ViewModel() {
         db.child("phases").addValueEventListener(phasesListener)
 
 
-        val positionChang = object :ChildEventListener{
+        val positionChang = object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
 
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                Toast.makeText(context, snapshot.child("name").value.toString()+"change", Toast.LENGTH_SHORT).show()
+                positionOrder.postValue(snapshot.child("name").value.toString()+"change")
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
+                positionOrder.postValue(snapshot.child("name").value.toString()+"Removed")
+
             }
 
             override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                positionOrder.postValue(snapshot.child("name").value.toString())
 
-                Toast.makeText(context, snapshot.child("name").value.toString(), Toast.LENGTH_SHORT).show()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -74,7 +77,7 @@ class ViewModel : androidx.lifecycle.ViewModel() {
             }
 
         }
-        db.child("queue").addChildEventListener(positionChang)
+        db.child("orders").addChildEventListener(positionChang)
 
     }
 

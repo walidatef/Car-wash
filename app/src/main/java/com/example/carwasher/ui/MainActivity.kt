@@ -3,6 +3,7 @@ package com.example.carwasher.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.carwasher.IsSuccessOrder
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity(), IsSuccessOrder {
 
         val viewModel = ViewModelProvider(this)[ViewModel::class.java]
         viewModel.fetchData(this)
+
+        viewModel.positionOrder.observe(this) {
+            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+        }
 
         viewModel.queueData.observe(this) {
             binding.carFrontTv.text = it["Cars_front"].toString()
