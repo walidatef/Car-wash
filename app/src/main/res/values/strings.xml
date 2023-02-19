@@ -26,4 +26,10 @@
     <string name="wait">انتظر ...</string>
     <string name="ok">حسنا</string>
     <string name="done_send_order">تم ارسال الطلب</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">كلمة السر</string>
+    <string name="confirm_password">تاكيد كلمة السر</string>
+    <string name="signUp">أنشاء حساب</string>
+    <string name="signIn">تسجيل الدخول</string>
+    <string name="passNotMatch">كلمة السر غير متطابقة</string>
 </resources>

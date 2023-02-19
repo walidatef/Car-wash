@@ -19,11 +19,13 @@ class ViewModel : androidx.lifecycle.ViewModel() {
     private val db = Firebase.database.reference
     val queueData = MutableLiveData<Map<String, Any>>()
     val phasesData = MutableLiveData<Map<*, *>>()
-    val positionOrder = MutableLiveData<String>()
+    val positionOrder = MutableLiveData<Int>()
 
     fun fetchData(context: Context) {
 
         db.keepSynced(true)
+
+
         val queueListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
@@ -53,31 +55,20 @@ class ViewModel : androidx.lifecycle.ViewModel() {
         db.child("phases").addValueEventListener(phasesListener)
 
 
-        val positionChang = object : ChildEventListener {
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+        val ordersListener = object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
 
-            }
-
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                positionOrder.postValue(snapshot.child("name").value.toString()+"change")
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-                positionOrder.postValue(snapshot.child("name").value.toString()+"Removed")
-
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-                positionOrder.postValue(snapshot.child("name").value.toString())
-
+                val map : MutableMap<*,*> = snapshot.value as MutableMap<*, *>
+           //     positionOrder.postValue(map["NOM-5n1kt1s4u5Ckaeh"].toString())
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                
             }
 
         }
-        db.child("orders").addChildEventListener(positionChang)
+        db.child("orders").addValueEventListener(ordersListener)
+
 
     }
 
